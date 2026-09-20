@@ -9,7 +9,7 @@
 2. 推送准备好的源码分支到 GitHub。CI 在 macOS、Windows、Linux 检查、测试、构建；
    构建通过不等于各系统的 DBX 实机兼容性验收。
 3. 确认 `manifest.json`、`package.json`、`package-lock.json` 版本一致。
-4. 创建并推送 `v0.3.21` 标签，在 GitHub Releases 发布同名 Release。
+4. 创建并推送 `v0.3.22` 标签，在 GitHub Releases 发布同名 Release。
 5. `Release DBX plugin` 工作流从该标签构建，上传未签名的 universal `.dbxp`、
    `.artifact.json`、`release-candidates.json`、`dbx-store-submission.zip`。
    工作流不会覆盖已存在的同名附件；修改安装包内容应发布新版本。
@@ -19,7 +19,7 @@
 1. Fork https://github.com/t8y2/dbx-store ，从 main 创建提交分支。
 2. 下载该 Release 的 `dbx-store-submission.zip`，解压至商店仓库根目录。
    首次提交包含 `publishers/ccllzz111.json` 和
-   `candidates/com.cailiangzhou.dbx-draw.json`。以后更新不覆盖已审核的 publisher 记录。
+   `candidates/ccllzz111.dbx-draw.json`。以后更新不覆盖已审核的 publisher 记录。
 3. 提交 PR 到 `t8y2/dbx-store:main`，允许维护者编辑分支。
    可使用本目录 `STORE_PR.md` 填写说明。
 4. 执行 `node scripts/validate.mjs`。若只有
@@ -39,7 +39,14 @@ npm run release:metadata
 ```
 
 正式提交使用 **CI 发布的安装包及对应元数据**；本地打包字节可能与 CI 不同，
-不能混用哈希。保留既有插件 ID `com.cailiangzhou.dbx-draw`；首次上架 publisher
+不能混用哈希。首次上架使用插件 ID `ccllzz111.dbx-draw`；首次上架 publisher
 设为当前 GitHub 账号 `ccllzz111`。该身份应在官方审核后保持稳定。
 
 官方规范：https://github.com/t8y2/dbx-store/blob/main/CONTRIBUTING.md
+
+## 从开发版迁移
+
+v0.3.22 起插件 ID 为 `ccllzz111.dbx-draw`，旧 v0.3.21 的 ID 为
+`com.cailiangzhou.dbx-draw`。DBX 会将它们视为两个插件，不会原位升级。
+迁移前先保存旧插件中的图表，再卸载旧插件、安装新版并重新导入文件。
+提交商店时只使用 v0.3.22 的候选文件，不要混用旧版本元数据。

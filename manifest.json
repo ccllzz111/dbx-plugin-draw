@@ -1,9 +1,9 @@
 {
   "$schema": "https://raw.githubusercontent.com/t8y2/dbx/plugin-sdk-v1/plugins/manifest.schema.json",
   "manifest_version": 1,
-  "id": "com.cailiangzhou.dbx-draw",
+  "id": "ccllzz111.dbx-draw",
   "name": "DBX Draw",
-  "version": "0.3.21",
+  "version": "0.3.22",
   "publisher": "ccllzz111",
   "description": "The draw.io diagram editor bundled inside the DBX sandbox, with offline editing and mathematical typesetting.",
   "icon": "assets/plugin.svg",
@@ -21,7 +21,7 @@
   "contributions": [
     {
       "type": "workbench",
-      "id": "com.cailiangzhou.dbx-draw.workbench",
+      "id": "ccllzz111.dbx-draw.workbench",
       "label": "DBX Draw",
       "description": "Offline diagrams and mathematical typesetting powered by draw.io.",
       "icon": "assets/plugin.svg"
@@ -32,7 +32,7 @@
       "name": "DBX 绘图",
       "description": "内置 draw.io 的图表编辑器，支持 DBX 沙箱内离线绘图与数学排版。",
       "contributions": {
-        "com.cailiangzhou.dbx-draw.workbench": {
+        "ccllzz111.dbx-draw.workbench": {
           "label": "DBX 绘图",
           "description": "基于 draw.io 的离线绘图与数学排版工具。"
         }

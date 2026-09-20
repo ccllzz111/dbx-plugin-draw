@@ -1,6 +1,6 @@
 ## Add DBX Draw
 
-- Plugin ID: `com.cailiangzhou.dbx-draw`
+- Plugin ID: `ccllzz111.dbx-draw`
 - Publisher: `ccllzz111` (first submission, unverified)
 - Source: https://github.com/ccllzz111/dbx-plugin-draw
 - Target: `universal`; frontend-only, no native sidecar.
@@ -27,4 +27,4 @@ Validation: see linked CI run for this release. macOS development and Chromium
 sandbox integration tested; Windows/Linux build checks are not native UI tests.
 
 Candidate URL, SHA-256 and byte size are generated from the exact Release package
-in candidates/com.cailiangzhou.dbx-draw.json. Request DBX Store review and signing.
+in candidates/ccllzz111.dbx-draw.json. Request DBX Store review and signing.

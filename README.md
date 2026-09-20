@@ -115,7 +115,7 @@ npm run build
 npx --yes @dbx-app/plugin-cli@0.1.9 package .
 ```
 
-The output is `dist/com.cailiangzhou.dbx-draw-<version>-universal.dbxp`, containing
+The output is `dist/ccllzz111.dbx-draw-<version>-universal.dbxp`, containing
 the built UI, draw.io assets, MathJax components and fonts, plugin icon and
 third-party notices. No platform-specific executable is included.
 

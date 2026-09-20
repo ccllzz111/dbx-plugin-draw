@@ -32,6 +32,9 @@ const identity = { id: manifest.id, name: manifest.name, description: manifest.d
 const json = (path, data) => writeFileSync(path, JSON.stringify(data, null, 2) + '\n');
 json(join(dist, 'release-candidates.json'), { plugin: identity, artifacts: [target] });
 const submission = join(dist, 'store-submission');
+// This directory is generated output. Remove older IDs/versions before
+// creating the archive so a rename cannot submit two candidates by accident.
+rmSync(submission, { recursive: true, force: true });
 mkdirSync(join(submission, 'candidates'), { recursive: true });
 mkdirSync(join(submission, 'publishers'), { recursive: true });
 json(join(submission, 'candidates', `${manifest.id}.json`), {

@@ -102,7 +102,7 @@ npm run build
 npx --yes @dbx-app/plugin-cli@0.1.9 package .
 ```
 
-输出为 `dist/com.cailiangzhou.dbx-draw-<版本>-universal.dbxp`，包含构建后的界面、
+输出为 `dist/ccllzz111.dbx-draw-<版本>-universal.dbxp`，包含构建后的界面、
 draw.io 资源、MathJax 组件及字体、插件图标和第三方许可说明，不包含平台专用可执行文件。
 
 ## 发布与上架
