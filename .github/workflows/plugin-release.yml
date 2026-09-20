@@ -1,0 +1,41 @@
+name: Release DBX plugin
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.release.tag_name }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npm test
+      - run: npm run build
+      - name: Package unsigned universal candidate
+        run: npx --yes @dbx-app/plugin-cli@0.1.9 package .
+        env:
+          DBX_PLUGIN_TARGET: universal
+      - name: Validate identity and generate submission metadata
+        run: npm run release:metadata
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+          RELEASE_REPOSITORY: ${{ github.repository }}
+      - name: Attach immutable review candidates
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: |
+          gh release upload "$RELEASE_TAG" dist/*.dbxp dist/*.artifact.json dist/release-candidates.json dist/dbx-store-submission.zip

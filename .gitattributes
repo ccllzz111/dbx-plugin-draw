@@ -1,0 +1,6 @@
+* text=auto
+public/drawio/** -text -whitespace
+public/drawio/** linguist-vendored
+*.mjs text eol=lf
+*.yml text eol=lf
+*.json text eol=lf

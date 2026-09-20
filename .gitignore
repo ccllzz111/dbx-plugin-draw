@@ -1,0 +1,11 @@
+node_modules/
+ui/
+dist/
+.dbx-dev/
+*.log
+.DS_Store
+public/drawio/math4/
+.idea/
+
+handoff.md
+.release-local/

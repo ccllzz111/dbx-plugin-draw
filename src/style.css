@@ -1,0 +1,82 @@
+:root {
+  color-scheme: light dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", system-ui, sans-serif;
+  font-size: 13px;
+  color: var(--color-foreground, #18181b);
+  background: var(--color-background, #fafafa);
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+.tool-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: var(--radius-md, 6px);
+  border: 1px solid var(--color-border, #d4d4d8);
+  background: var(--color-background, #ffffff);
+  color: var(--color-foreground, #18181b);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tool-button:hover:not(:disabled) {
+  background: var(--color-muted, #f4f4f5);
+}
+
+.tool-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.tool-button.primary {
+  border-color: var(--color-primary, #2563eb);
+  background: var(--color-primary, #2563eb);
+  color: var(--color-primary-foreground, #ffffff);
+}
+
+.tool-button.primary:hover:not(:disabled) {
+  opacity: 0.92;
+  background: var(--color-primary, #2563eb);
+}
+
+/* drawio's classic header reserves a 64px row for the app icon + filename
+   above the menu (File/Edit/...), which never renders in embed mode — the
+   menus sit at top:28px with dead space above. Compact the header to a
+   single 30px menu row, the same geometry drawio's own reduced modes use
+   (geCompactMode), while keeping the full toolbar below. !important because
+   these load before drawio's grapheditor.css in the bundle. */
+.geEditor > .geMenubarContainer {
+  height: 30px !important;
+  margin-top: 0 !important;
+}
+
+.geEditor > .geMenubarContainer > .geMenubar {
+  top: 0 !important;
+  padding-left: 4px !important;
+}
+
+.geEditor > .geMenubarContainer > .geAppIcon,
+.geEditor > .geMenubarContainer > .geFilenameContainer {
+  display: none !important;
+}
